@@ -1,0 +1,114 @@
+{
+  "project": "Voorbeeld - twee voorwaarden en een vertraging",
+  "version": "1.0",
+  "date": "29-10-2026",
+  "hardware": "Nog te bepalen",
+  "software": "LOGO! Soft Comfort V8.3 (doelversie; blokken nog te verifiëren)",
+  "verification": "Illustratief - niet gesimuleerd",
+  "description": "Een demonstratie van documentopmaak; geen gevalideerd PLC-programma.",
+  "inputs": [
+    {
+      "id": "I1",
+      "name": "Start",
+      "active": "1 = actief",
+      "description": "Startvoorwaarde"
+    },
+    {
+      "id": "I2",
+      "name": "Vrijgave",
+      "active": "1 = actief",
+      "description": "Vrijgavevoorwaarde"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "Q1",
+      "name": "Uitgang",
+      "description": "Wordt na vertraging actief"
+    }
+  ],
+  "blocks": [
+    {
+      "id": "B001",
+      "name": "AND",
+      "pins": "in1, in2, Q",
+      "params": "-",
+      "description": "Beide voorwaarden moeten actief zijn",
+      "x": 150,
+      "y": 90
+    },
+    {
+      "id": "B002",
+      "name": "On-delay (te verifiëren)",
+      "pins": "Trg, Q",
+      "params": "T = 3 s (voorbeeld)",
+      "description": "Schakelt vertraagd in",
+      "x": 320,
+      "y": 90
+    }
+  ],
+  "nodes": [
+    {
+      "id": "I1",
+      "x": 30,
+      "y": 110,
+      "label": "I1"
+    },
+    {
+      "id": "I2",
+      "x": 30,
+      "y": 60,
+      "label": "I2"
+    },
+    {
+      "id": "Q1",
+      "x": 490,
+      "y": 110,
+      "label": "Q1"
+    }
+  ],
+  "connections": [
+    {
+      "from": "I1",
+      "to": "B001.in1"
+    },
+    {
+      "from": "I2",
+      "to": "B001.in2"
+    },
+    {
+      "from": "B001.Q",
+      "to": "B002.Trg"
+    },
+    {
+      "from": "B002.Q",
+      "to": "Q1"
+    }
+  ],
+  "steps": [
+    "Plaats de ingangen I1 en I2.",
+    "Voeg B001 en B002 toe na controle van de versie.",
+    "Verbind de terminals zoals in de verbindingstabel.",
+    "Stel de vertraging in en simuleer in LOGO! Soft Comfort."
+  ],
+  "tests": [
+    {
+      "scenario": "I1=1, I2=1",
+      "expected": "Q1 na ingestelde vertraging actief",
+      "status": "Niet uitgevoerd"
+    }
+  ],
+  "sources": [
+    "Raadpleeg de officiële Siemens handleiding voor de exacte doelversie."
+  ],
+  "revisions": [
+    {
+      "version": "1.0",
+      "date": "29-10-2026",
+      "changes": "Illustratief voorbeeld"
+    }
+  ],
+  "warnings": [
+    "Demonstratiegegevens zijn geen bewijs van een werkende schakeling."
+  ]
+}
