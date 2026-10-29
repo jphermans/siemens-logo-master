@@ -18,7 +18,7 @@
 
 ## Agent Zero installation
 
-Use an **import-ready ZIP with SKILL.md at archive root**. In Agent Zero: **Skills → Import → Scan Skills → Preview → Import**. Select namespace `siemens-logo-master`.
+Build the **import-ready ZIP with SKILL.md at archive root** using `python scripts/package_skill.py` after cloning this repository. The generated file is `Siemens_LOGO_Master_Skill_v1.1_A0.zip`. In Agent Zero: **Skills → Import → Scan Skills → Preview → Import**. Select namespace `siemens-logo-master`.
 
 For manual installation copy `SKILL.md`, `references/`, `scripts/`, and `assets/` to `/a0/usr/skills/siemens-logo-master/`, subject to your A0 deployment path.
 
